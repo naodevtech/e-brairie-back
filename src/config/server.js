@@ -6,7 +6,6 @@ class Server {
   }
 
   initializeBodyParsing(express) {
-    this.app.use(express.urlencoded({ extended: false }));
     this.app.use(express.json());
   }
 
@@ -14,9 +13,9 @@ class Server {
     this.app.use(routes);
   }
 
-  listen(port) {
-    this.app.listen(port, () =>
-      console.log(`application started on port : ${port}`)
+  listen(app_port) {
+    this.app.listen(app_port, () =>
+      console.log(`application started on port : ${app_port}`)
     );
   }
 }

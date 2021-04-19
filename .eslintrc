@@ -10,8 +10,13 @@
         "sourceType": "module"
     },
     "rules": {
-        "prettier/prettier": "error",
+        "prettier/prettier": [
+            "error",
+            {
+                "endOfLine": "auto"
+            }
+        ],
         "no-console": 1, // Means warning
         "no-unused-vars": ["warn", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }]
-    }
+    },
 }
