@@ -1,0 +1,45 @@
+openapi: 3.0.3
+info:
+  title: E-Brairie API REST
+  description: Backend RESTAPI
+  termsOfService: http://swagger.io/terms/
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: 1.0.0
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io
+servers:
+  - url: /api/v1
+
+tags:
+  - name: NodeJS + Express APIs
+    description: NodeJS + express APIs
+
+paths:
+  /:
+    get:
+      description: Returns 'Hello world !' to the caller
+      tags:
+        - greeting
+      operationId: Hello
+      parameters:
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HelloResponse'
+
+components:
+  schemas:
+    HelloResponse:
+      type: object
+      additionalProperties: false
+      required:
+        - message
+      properties:
+        message:
+          type: string
