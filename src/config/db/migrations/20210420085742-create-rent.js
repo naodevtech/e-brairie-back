@@ -8,10 +8,28 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      in : {
+      userId: {
+        allowNull: false,
+        type: Sequelize.UUID,
+        references: {
+          model: 'Users',
+          key: 'id'
+        }
+      },
+      ressourceId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Ressources',
+          key: 'id'
+        }
+      },
+      in: {
+        allowNull: false,
         type: Sequelize.DATE
       },
       back: {
+        allowNull: false,
         type: Sequelize.DATE
       },
       createdAt: {

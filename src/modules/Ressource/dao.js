@@ -9,6 +9,24 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.belongsTo(models.Author, {
+        foreignKey: {
+          allowNull: false,
+          name: 'id'
+        }
+      });
+      this.belongsTo(models.Categories, {
+        foreignKey: {
+          allowNull: false,
+          name: 'id'
+        }
+      });
+      this.belongsTo(models.Locations, {
+        foreignKey: {
+          allowNull: false,
+          name: 'id'
+        }
+      });
     }
   }
   Ressource.init(
