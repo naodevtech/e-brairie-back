@@ -16,12 +16,22 @@ module.exports = {
           key: 'id'
         }
       },
-      // categoryId: {
-      //   type: Sequelize.INTEGER
-      // },
-      // locationId: {
-      //   type: Sequelize.INTEGER
-      // },
+      categoryId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Categories',
+          key: 'id'
+        }
+      },
+      locationId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Locations',
+          key: 'id'
+        }
+      },
       title: {
         type: Sequelize.STRING
       },
