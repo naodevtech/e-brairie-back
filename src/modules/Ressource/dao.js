@@ -15,6 +15,18 @@ module.exports = (sequelize, DataTypes) => {
           name: 'id'
         }
       });
+      this.belongsTo(models.Categories, {
+        foreignKey: {
+          allowNull: false,
+          name: 'id'
+        }
+      });
+      this.belongsTo(models.Locations, {
+        foreignKey: {
+          allowNull: false,
+          name: 'id'
+        }
+      });
     }
   }
   Ressource.init(

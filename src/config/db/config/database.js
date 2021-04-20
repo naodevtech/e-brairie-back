@@ -1,3 +1,5 @@
+const config = require('../../env');
+
 module.exports = {
   development: {
     username: 'root',
