@@ -40,8 +40,10 @@
   },
   "dependencies": {
     "@babel/plugin-transform-async-to-generator": "^7.13.0",
+    "errorhandler": "^1.5.1",
     "express": "^4.17.1",
     "mysql2": "^2.2.5",
+    "node-notifier": "^9.0.1",
     "onchange": "^7.1.0",
     "path": "^0.12.7",
     "sequelize": "^6.6.2",

@@ -3,7 +3,8 @@ module.exports = {
     username: 'root',
     password: 'password',
     database: 'E-brairy',
-    host: 3306,
+    host: 'localhost',
+    port: 8889,
     dialect: 'mysql'
   }
 };
