@@ -8,6 +8,20 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      authorId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Authors',
+          key: 'id'
+        }
+      },
+      // categoryId: {
+      //   type: Sequelize.INTEGER
+      // },
+      // locationId: {
+      //   type: Sequelize.INTEGER
+      // },
       title: {
         type: Sequelize.STRING
       },

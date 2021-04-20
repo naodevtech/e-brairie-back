@@ -9,6 +9,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.hasMany(models.Rent, {
+        onDelete: 'cascade'
+      });
     }
   }
   User.init(
