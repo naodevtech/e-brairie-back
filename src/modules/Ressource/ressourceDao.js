@@ -15,13 +15,13 @@ module.exports = (sequelize, DataTypes) => {
           name: 'id'
         }
       });
-      this.belongsTo(models.Categories, {
+      this.belongsTo(models.Category, {
         foreignKey: {
           allowNull: false,
           name: 'id'
         }
       });
-      this.belongsTo(models.Locations, {
+      this.belongsTo(models.Location, {
         foreignKey: {
           allowNull: false,
           name: 'id'
