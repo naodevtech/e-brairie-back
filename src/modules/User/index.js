@@ -2,13 +2,16 @@ import { Router } from 'express';
 import bcrypt from 'bcrypt';
 
 import db from '../../config/db/models';
-const User = require('./userDao');
+
 import UserController from './controller';
 import UserRouter from './router';
 import UserService from './service';
 import UserRepository from './repository';
+
 import { ApiError } from '../../helpers/error';
 import responseHandler from '../../helpers/response';
+
+const User = require('./userDao');
 
 const router = Router();
 
