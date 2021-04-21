@@ -8,7 +8,9 @@ module.exports = {
         defaultValue: Sequelize.UUIDV4
       },
       role: {
-        type: Sequelize.STRING
+        allowNull: false,
+        type: Sequelize.ENUM('basic', 'admin'),
+        defaultValue: 'basic'
       },
       name: {
         type: Sequelize.STRING
@@ -21,11 +23,13 @@ module.exports = {
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       }
     });
   },
