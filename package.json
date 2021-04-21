@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start index User": "nodemon --exec babel-node ./src/modules/User/index.js",
     "start": "nodemon --exec babel-node app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint --ext js src",
@@ -23,6 +24,7 @@
   "devDependencies": {
     "@babel/core": "^7.13.15",
     "@babel/node": "^7.13.13",
+    "@babel/plugin-transform-async-to-generator": "^7.13.0",
     "@babel/plugin-transform-runtime": "^7.13.15",
     "@babel/preset-env": "^7.13.15",
     "dotenv": "^8.2.0",
@@ -39,7 +41,6 @@
     "supertest": "^6.1.3"
   },
   "dependencies": {
-    "@babel/plugin-transform-async-to-generator": "^7.13.0",
     "bcrypt": "^5.0.1",
     "errorhandler": "^1.5.1",
     "express": "^4.17.1",
