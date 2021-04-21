@@ -23,8 +23,8 @@ class UserService {
     return await this.userRepository.createUser(userEntity);
   }
 
-  async getByCredentials(email, password) {
-    return await this.userRepository.getByCredentials(email, password);
+  async login(email, password) {
+    return await this.userRepository.checkCredentials(email, password);
   }
 }
 

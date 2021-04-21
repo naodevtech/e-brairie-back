@@ -21,7 +21,7 @@ class UserRepository {
     }
   }
 
-  async getByCredentials(email, password) {
+  async checkCredentials(email, password) {
     const userExist = await this.userDao.findOne({ where: { email: email } });
     if (!userExist) {
       throw new this.apiError(

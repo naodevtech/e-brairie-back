@@ -16,11 +16,15 @@ class UserController {
 
   login = async (request, response, next) => {
     try {
-      let user = await this.userService.getByCredentials(
+      let user = await this.userService.login(
         request.body.email,
         request.body.password
       );
-      let token = await this.jwt.generateToken({ id: user.dataValues.id });
+      let token = await this.jwt.generateToken({
+        id: user.dataValues.id,
+        email: user.dataValues.email,
+        role: user.dataValues.role
+      });
       response.cookie('auth-cookie', token, { expires: false });
       this.responseHandler(
         response,
