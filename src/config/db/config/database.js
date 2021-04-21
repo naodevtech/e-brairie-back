@@ -1,9 +1,12 @@
+const config = require('../../env');
+
 module.exports = {
   development: {
-    username: 'root',
-    password: 'password',
-    database: 'E-brairy',
-    host: 3306,
+    username: config.db_user,
+    password: config.db_password,
+    database: config.db_name,
+    host: config.db_host,
+    port: config.db_port,
     dialect: 'mysql'
   }
 };
