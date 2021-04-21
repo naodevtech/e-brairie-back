@@ -6,7 +6,7 @@ const Sequelize = require('sequelize');
 const { domainToASCII } = require('url');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
-const config = require(__dirname + '/../')[env];
+const config = require(__dirname + '/../config/database.js')[env];
 const db = {};
 
 let sequelize;
@@ -21,19 +21,26 @@ if (config.use_env_variable) {
   );
 }
 
-fs.readdirSync('../../../modules/')
-  .forEach((floder) => {
-    fs.readdirSync(`../../../modules/${floder}`).filter(
-      (file) => file === 'dao.js'
-    );
-  })
-  .forEach((file) => {
-    const model = require(path.join(__dirname, file))(
-      sequelize,
-      Sequelize.DataTypes
-    );
-    db[model.name] = model;
-  });
+fs.readdirSync(__dirname + '/../../../modules/').forEach((floder) => {
+  if (floder !== 'index.js') {
+    fs.readdirSync(__dirname + `/../../../modules/${floder}`)
+      .filter((file) => {
+        return (
+          file.indexOf('.') !== 0 &&
+          file !== basename &&
+          file.slice(-6) === 'Dao.js'
+        );
+      })
+      .forEach((file) => {
+        const model = require(path.join(
+          __dirname + `/../../../modules/${floder}`,
+          file
+        ))(sequelize, Sequelize.DataTypes);
+
+        db[model.name] = model;
+      });
+  }
+});
 
 Object.keys(db).forEach((modelName) => {
   if (db[modelName].associate) {
