@@ -2,7 +2,7 @@ import { Router } from 'express';
 import bcrypt from 'bcrypt';
 
 import db from '../../config/db/models';
-import User from './userDao';
+const User = require('./userDao');
 import UserController from './controller';
 import UserRouter from './router';
 import UserService from './service';
@@ -12,7 +12,7 @@ import responseHandler from '../../helpers/response';
 
 const router = Router();
 
-const userDao = User.init(db.sequelize, db.Sequelize.DataTypes);
+const userDao = User(db.sequelize, db.Sequelize.DataTypes);
 
 const userRepository = new UserRepository({ userDao, bcrypt, ApiError });
 const userService = new UserService({ userRepository, ApiError });

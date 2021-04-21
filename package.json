@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start index User": "nodemon --exec babel-node ./src/modules/User/index.js",
     "start": "nodemon --exec babel-node app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint --ext js src",

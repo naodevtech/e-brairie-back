@@ -1,30 +1,30 @@
 'use strict';
-import { Model } from 'sequelize';
-
-class User extends Model {
-  static init(sequelize, DataTypes) {
-    return super.init(
-      {
-        id: {
-          type: DataTypes.UUID,
-          defaultValue: DataTypes.UUIDV4,
-          primaryKey: true
-        },
-        role: DataTypes.STRING,
-        name: DataTypes.STRING,
-        email: DataTypes.STRING,
-        password: DataTypes.STRING
-      },
-      { sequelize, modelName: 'User' }
-    );
+const { Model } = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class User extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
+      this.hasMany(models.Rent, {
+        onDelete: 'cascade'
+      });
+    }
   }
-  static associate(models) {
-    // define association here
-    this.hasMany(models.Rent, {
-      onDelete: 'cascade'
-    });
-    return this;
-  }
-}
-
-export default User;
+  User.init(
+    {
+      role: DataTypes.STRING,
+      name: DataTypes.STRING,
+      email: DataTypes.STRING,
+      password: DataTypes.STRING
+    },
+    {
+      sequelize,
+      modelName: 'User'
+    }
+  );
+  return User;
+};
