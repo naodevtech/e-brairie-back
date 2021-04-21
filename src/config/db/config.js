@@ -1,10 +1,10 @@
-const config = require('../../env');
+const config = require('../env');
 
 module.exports = {
   development: {
     username: 'root',
-    password: 'password',
-    database: 'E-brairy',
+    password: 'root',
+    database: 'E-brairie',
     host: 'localhost',
     port: 8889,
     dialect: 'mysql'

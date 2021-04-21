@@ -1,17 +1,14 @@
-// import ErrorHandler from '../../libs/ErrorHandler';
-
 export default class HelloWordRouter {
-  constructor({ router, errorNotification }) {
+  constructor({ router }) {
     this.router = router;
-    this.errorNotification = errorNotification;
     this.initializeRoutes();
     return this.router;
   }
 
   initializeRoutes() {
-    console.log('hello');
+    console.log('HelloWorldRouter >');
     this.router.route('/').get((request, response, next) => {
-      this.errorNotification(response, 401, 'shabbat shalom');
+      response.send('Hello World 💥');
     });
   }
 }

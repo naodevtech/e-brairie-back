@@ -4,7 +4,8 @@ import config from './src/config/env';
 import routes from './src/modules';
 import swaggerUi from 'swagger-ui-express';
 import yaml from 'yamljs';
-import errorHandler from 'errorhandler';
+
+import { handleError } from './src/helpers/error';
 
 const swaggerOptions = yaml.load('./swagger.yml');
 const application = new Server({
@@ -12,7 +13,7 @@ const application = new Server({
   routes,
   swaggerUi,
   swaggerOptions,
-  errorHandler
+  handleError
 });
 
 application.listen(config.app_port);

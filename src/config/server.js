@@ -1,10 +1,12 @@
 class Server {
-  constructor({ express, routes, swaggerUi, swaggerOptions, errorHandler }) {
+  constructor({ express, routes, swaggerUi, swaggerOptions, handleError }) {
     this.app = express();
     this.initializeBodyParsing(express);
     this.initializeApplicationRouter(routes);
-    this.initializeErrorHandler(errorHandler);
     this.initializeApplicationSwagger(swaggerUi, swaggerOptions);
+    this.app.use((err, request, response, next) => {
+      handleError(err, response);
+    });
   }
 
   initializeBodyParsing(express) {
@@ -17,10 +19,6 @@ class Server {
 
   initializeApplicationSwagger(swaggerUi, swaggerOptions) {
     this.app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerOptions));
-  }
-
-  initializeErrorHandler(errorHandler) {
-    this.app.use(errorHandler());
   }
 
   listen(app_port) {
