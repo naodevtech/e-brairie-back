@@ -15,7 +15,7 @@ const router = Router();
 
 const userDao = User.init(db.sequelize, DataTypes);
 
-const userRepository = new UserRepository({ userDao, bcrypt });
+const userRepository = new UserRepository({ userDao, bcrypt, ApiError });
 const userService = new UserService({ userRepository, ApiError });
 
 const userController = new UserController({
