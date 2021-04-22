@@ -1,7 +1,7 @@
 class AuthMiddleWare {
-  constructor({ jwtService, errorHandler }) {
+  constructor({ jwtService, ApiError }) {
     this.jwt = jwtService;
-    this.errorHandler = errorHandler;
+    this.apiError = ApiError;
   }
 
   isAuthentificated = async (request, response, next) => {
@@ -10,7 +10,7 @@ class AuthMiddleWare {
       const token = request.cookies['auth-cookie'];
 
       if (!token) {
-        return this.errorHandler(
+        throw new this.apiError(
           401,
           'Votre session a expirée. Veuillez vous reconnecter 😣'
         );
@@ -27,10 +27,17 @@ class AuthMiddleWare {
 
   isAdmin = async (request, response, next) => {
     try {
+      const token = request.cookies['auth-cookie'];
       const decoded = await this.jwt.decodeToken(token);
-      if (decoded.role === 'admin') {
-        next();
+      console.log(decoded.data.role);
+      if (decoded.data.role != 'admin') {
+        throw new this.apiError(
+          401,
+          "Vous n'avez pas les droits administrateur pour effectuer cette requête 😣"
+        );
       }
+      request.currentUserId = decoded.id;
+      next();
     } catch (err) {
       next(err);
     }

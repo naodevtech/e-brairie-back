@@ -1,12 +1,13 @@
 import { Router } from 'express';
+import jwt from 'jsonwebtoken';
 
 import db from '../../config/db/models';
 
 import { ApiError } from '../../helpers/error';
 import responseHandler from '../../helpers/response';
-import errorHanler from '../../helpers/error';
+import { handleError } from '../../helpers/error';
 
-import jwtService from '../../libs/';
+import { jwtService } from '../../libs/';
 
 import AuthorController from './controllers';
 import AuthorRouter from './router';
@@ -23,7 +24,7 @@ const authorDao = Author(db.sequelize, db.Sequelize.DataTypes);
 
 const auth = new AuthMiddleWare({
   jwtService,
-  errorHanler
+  ApiError
 });
 
 const authorRepository = new AuthorRepository({
