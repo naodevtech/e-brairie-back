@@ -10,13 +10,14 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       this.belongsTo(models.Book);
-      this.hasMany(models.Rent);
+      this.belongsTo(models.Category);
     }
   }
   Location.init(
     {
+      shelf: DataTypes.STRING,
       floor: DataTypes.INTEGER,
-      row: DataTypes.INTEGER
+      place: DataTypes.INTEGER
     },
     {
       sequelize,

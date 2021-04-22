@@ -8,11 +8,25 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      categoryId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          key: 'id',
+          model: 'Categories'
+        }
+      },
       floor: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
-      row: {
+      place: {
+        allowNull: false,
         type: Sequelize.INTEGER
+      },
+      shelf: {
+        allowNull: false,
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
