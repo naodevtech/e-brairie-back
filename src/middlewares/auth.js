@@ -1,11 +1,12 @@
 class AuthMiddleWare {
   constructor({ jwtService, errorHandler }) {
-    this.jwt = jwt;
+    this.jwt = jwtService;
     this.errorHandler = errorHandler;
   }
 
   isAuthentificated = async (request, response, next) => {
     try {
+      console.log(request.cookies);
       const token = request.cookies['auth-cookie'];
 
       if (!token) {

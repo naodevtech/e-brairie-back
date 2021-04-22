@@ -41,13 +41,27 @@ class AuthorRepository {
     });
     if (authorExist) {
       const author = await this.authorDao.update(
-        { content: { name: name } },
-        { where: { id: id } }
+        { name: name },
+        {
+          where: {
+            id: id
+          }
+        }
       );
+      console.log(author);
       if (!author) {
-        throw new this.apiError(400, "Il semble qu'il n'y ai aucun auteur'😖");
+        throw new this.apiError(
+          500,
+          "Il semble qu'il n'y ai un problème lors de la modification'😖"
+        );
+      } else {
+        return author;
       }
-      return author;
+    } else {
+      throw new this.apiError(
+        400,
+        "Il semble qu'il n'y ai pas d'auteur sous cet ID à modifier 😖"
+      );
     }
   }
 

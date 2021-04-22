@@ -4,17 +4,27 @@ import db from '../../config/db/models';
 
 import { ApiError } from '../../helpers/error';
 import responseHandler from '../../helpers/response';
+import errorHanler from '../../helpers/error';
+
+import jwtService from '../../libs/';
 
 import AuthorController from './controllers';
 import AuthorRouter from './router';
 import AuthorService from './services';
 import AuthorRepository from './repository';
 
+import AuthMiddleWare from '../../middlewares/auth';
+
 const Author = require('./authorDao');
 
 const router = Router();
 
 const authorDao = Author(db.sequelize, db.Sequelize.DataTypes);
+
+const auth = new AuthMiddleWare({
+  jwtService,
+  errorHanler
+});
 
 const authorRepository = new AuthorRepository({
   authorDao,
@@ -32,6 +42,7 @@ const authorController = new AuthorController({
 
 const authorRouter = new AuthorRouter({
   router,
+  auth,
   authorController,
   responseHandler
 });
