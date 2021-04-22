@@ -8,14 +8,14 @@ module.exports = {
         {
           in: '2021-04-22 15:27:13',
           back: '2021-05-22 15:27:13',
-          ressourceId: 5,
+          bookId: 5,
           //Jackson
           userId: '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d'
         },
         {
           in: '2021-04-27 15:27:13',
           back: '2021-05-27 15:27:13',
-          ressourceId: 2,
+          bookId: 2,
           //Lisa
           userId: '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6e'
         }
