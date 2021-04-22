@@ -11,14 +11,10 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       this.belongsTo(models.Book);
     }
-    static test() {
-      console.log('hello');
-    }
   }
   Author.init(
     {
-      name: DataTypes.STRING,
-      description: DataTypes.TEXT
+      name: DataTypes.STRING
     },
     {
       sequelize,
