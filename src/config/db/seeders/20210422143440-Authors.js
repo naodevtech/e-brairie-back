@@ -1,27 +1,24 @@
 'use strict';
-
+const { v4: uuidv4 } = require('uuid');
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.bulkInsert(
-      'Categories',
+      'Authors',
       [
         {
-          name: 'Poche'
+          name: 'J.K Rowlling'
         },
         {
-          name: 'Manga'
+          name: 'Victor Hugo'
         },
         {
-          name: 'Bd'
+          name: 'Napoleon Hill'
         },
         {
-          name: 'Roman'
+          name: 'Tolkien'
         },
         {
-          name: 'Scientifiques'
-        },
-        {
-          name: 'Developpement Personnel'
+          name: 'Stephan King'
         }
       ],
       {}
