@@ -6,24 +6,22 @@ module.exports = {
       'Categories',
       [
         {
-          id: 1,
           name: 'Poche'
         },
         {
-          id: 2,
           name: 'Manga'
         },
         {
-          id: 3,
           name: 'Bd'
         },
         {
-          id: 4,
           name: 'Roman'
         },
         {
-          id: 5,
           name: 'Scientifiques'
+        },
+        {
+          name: 'Developpement Personnel'
         }
       ],
       {}

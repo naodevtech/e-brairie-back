@@ -26,11 +26,12 @@ module.exports = {
       },
       in: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       },
       back: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: 'TIMESTAMP'
       },
       createdAt: {
         allowNull: false,

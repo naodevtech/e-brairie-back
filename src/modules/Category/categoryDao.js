@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       this.belongsTo(models.Ressource);
       this.hasMany(models.CategoryGenre);
+      this.hasMany(models.Location);
     }
   }
   Category.init(

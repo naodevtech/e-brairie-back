@@ -13,10 +13,17 @@ module.exports = {
           password: 'password'
         },
         {
-          id: uuidv4(),
+          id: '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d',
           name: 'Jackson',
           role: 'basic',
           email: 'Jackson@gmail.fr',
+          password: 'password'
+        },
+        {
+          id: '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6e',
+          name: 'Lisa',
+          role: 'basic',
+          email: 'Lisa@gmail.fr',
           password: 'password'
         }
       ],
