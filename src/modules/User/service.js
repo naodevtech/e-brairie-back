@@ -22,6 +22,10 @@ class UserService {
     }
     return await this.userRepository.createUser(userEntity);
   }
+
+  async login(email, password) {
+    return await this.userRepository.checkCredentials(email, password);
+  }
 }
 
 export default UserService;

@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       this.belongsTo(models.User);
-      this.belongsTo(models.Ressource);
+      this.belongsTo(models.Book);
     }
   }
   Rent.init(

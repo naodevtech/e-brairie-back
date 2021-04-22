@@ -20,6 +20,25 @@ class UserRepository {
       return await this.userDao.create(userData);
     }
   }
+
+  async checkCredentials(email, password) {
+    const userExist = await this.userDao.findOne({ where: { email: email } });
+    if (!userExist) {
+      throw new this.apiError(
+        400,
+        'Il ne semble pas y avoir de compte sous cet adresse-email 😖'
+      );
+    } else {
+      let checkPassword = await this.bcrypt.compareSync(
+        password,
+        userExist.password
+      );
+      if (!checkPassword) {
+        throw new this.apiError(400, 'Mot de passe incorrect😖');
+      }
+      return userExist;
+    }
+  }
 }
 
 export default UserRepository;

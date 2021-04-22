@@ -7,7 +7,7 @@ class UserEntity {
   }
 
   validate() {
-    if (!this.role || !this.name || !this.email || !this.password) {
+    if (!this.name || !this.email || !this.password) {
       return false;
     } else {
       return true;

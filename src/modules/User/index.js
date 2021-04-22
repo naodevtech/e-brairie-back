@@ -8,6 +8,8 @@ import UserRouter from './router';
 import UserService from './service';
 import UserRepository from './repository';
 
+import { jwtService } from '../../libs/';
+
 import { ApiError } from '../../helpers/error';
 import responseHandler from '../../helpers/response';
 
@@ -22,6 +24,7 @@ const userService = new UserService({ userRepository, ApiError });
 
 const userController = new UserController({
   userService,
+  jwt: jwtService,
   responseHandler
 });
 

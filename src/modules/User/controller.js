@@ -1,7 +1,7 @@
 class UserController {
-  constructor({ userService, bcrypt, responseHandler }) {
+  constructor({ userService, jwt, responseHandler }) {
     this.userService = userService;
-    this.bcrypt = bcrypt;
+    this.jwt = jwt;
     this.responseHandler = responseHandler;
   }
 
@@ -15,7 +15,26 @@ class UserController {
   };
 
   login = async (request, response, next) => {
-    console.log('login');
+    try {
+      let user = await this.userService.login(
+        request.body.email,
+        request.body.password
+      );
+      let token = await this.jwt.generateToken({
+        id: user.dataValues.id,
+        email: user.dataValues.email,
+        role: user.dataValues.role
+      });
+      response.cookie('auth-cookie', token, { expires: false });
+      this.responseHandler(
+        response,
+        200,
+        { email: user.dataValues.email, role: user.dataValues.role, token },
+        `Bonjour ${user.dataValues.name} 💥`
+      );
+    } catch (err) {
+      next(err);
+    }
   };
 }
 
