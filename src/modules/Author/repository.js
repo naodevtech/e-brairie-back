@@ -48,11 +48,10 @@ class AuthorRepository {
           }
         }
       );
-      console.log(author);
       if (!author) {
         throw new this.apiError(
           500,
-          "Il semble qu'il n'y ai un problème lors de la modification'😖"
+          "Il semble qu'il n'y ai un problème lors de la modification de l'auteur'😖"
         );
       } else {
         return author;

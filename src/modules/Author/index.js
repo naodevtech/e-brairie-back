@@ -1,11 +1,9 @@
 import { Router } from 'express';
-import jwt from 'jsonwebtoken';
 
 import db from '../../config/db/models';
 
 import { ApiError } from '../../helpers/error';
 import responseHandler from '../../helpers/response';
-import { handleError } from '../../helpers/error';
 
 import { jwtService } from '../../libs/';
 
