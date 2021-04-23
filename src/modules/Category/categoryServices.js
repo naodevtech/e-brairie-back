@@ -1,4 +1,4 @@
-import CategoryEntity from './entity';
+import CategoryEntity from './categoryEntity';
 
 class CategoryService {
   constructor({ categoryRepository, ApiError }) {

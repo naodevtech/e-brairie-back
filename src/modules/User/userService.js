@@ -1,4 +1,4 @@
-import UserEntity from './entity';
+import UserEntity from './userEntity';
 
 class UserService {
   constructor({ userRepository, ApiError }) {

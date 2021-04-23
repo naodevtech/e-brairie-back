@@ -1,4 +1,4 @@
-import AuthorEntity from './entity';
+import AuthorEntity from './authorEntity';
 
 class AuthorService {
   constructor({ authorRepository, ApiError }) {

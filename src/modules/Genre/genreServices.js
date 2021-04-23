@@ -1,4 +1,4 @@
-import GenreEntity from './entity';
+import GenreEntity from './genreEntity';
 
 class GenreService {
   constructor({ genreRepository, ApiError }) {

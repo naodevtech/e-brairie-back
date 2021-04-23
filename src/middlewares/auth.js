@@ -1,6 +1,6 @@
 class AuthMiddleWare {
-  constructor({ jwtService, ApiError }) {
-    this.jwt = jwtService;
+  constructor({ jwt, ApiError }) {
+    this.jwt = jwt;
     this.apiError = ApiError;
   }
 

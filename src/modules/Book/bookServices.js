@@ -1,4 +1,4 @@
-import BookEntity from './entity';
+import BookEntity from './bookEntity';
 
 class BookService {
   constructor({ bookRepository, ApiError }) {
