@@ -29,6 +29,10 @@ class BookService {
   async deleteBook(id) {
     return await this.bookRepository.deleteBookById(id);
   }
+
+  async getGenres(id) {
+    return await this.bookRepository.getGenresByCategoryId(id);
+  }
 }
 
 export default BookService;

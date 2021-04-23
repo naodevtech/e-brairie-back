@@ -1,5 +1,5 @@
 'use strict';
-const { Model } = require('sequelize');
+const { Model, Sequelize } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class CategoryGenre extends Model {
     /**
@@ -15,7 +15,8 @@ module.exports = (sequelize, DataTypes) => {
   }
   CategoryGenre.init(
     {
-      name: DataTypes.STRING
+      categoryId: Sequelize.INTEGER,
+      genreId: Sequelize.INTEGER
     },
     {
       sequelize,
