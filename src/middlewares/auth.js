@@ -6,7 +6,6 @@ class AuthMiddleWare {
 
   isAuthentificated = async (request, response, next) => {
     try {
-      console.log(request.cookies);
       const token = request.cookies['auth-cookie'];
 
       if (!token) {
