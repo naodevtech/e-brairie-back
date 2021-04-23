@@ -6,7 +6,6 @@ class CategoryRouter {
   }
 
   initializeRoutes({ categoryController, auth }) {
-    console.log('CategoryRouter >');
     this.router
       .route('/categories')
       .get(auth.isAuthentificated, categoryController.getAllCategories);

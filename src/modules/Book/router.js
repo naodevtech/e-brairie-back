@@ -6,7 +6,6 @@ class BookRouter {
   }
 
   initializeRoutes({ bookController, auth }) {
-    console.log('BookRouter >');
     this.router
       .route('/books')
       .get(auth.isAuthentificated, bookController.getAllBooks);

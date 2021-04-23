@@ -5,7 +5,6 @@ class GenreRouter {
     return this.router;
   }
   initializeRoutes({ genreController, auth }) {
-    console.log('GenreRouter >');
     this.router
       .route('/genres')
       .get(auth.isAuthentificated, genreController.getAllGenres);

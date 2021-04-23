@@ -6,7 +6,6 @@ export default class HelloWordRouter {
   }
 
   initializeRoutes() {
-    console.log('HelloWorldRouter >');
     this.router.route('/').get((request, response, next) => {
       response.send('Hello World 💥');
     });
