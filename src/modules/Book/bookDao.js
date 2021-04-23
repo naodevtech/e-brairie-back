@@ -9,28 +9,16 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.belongsTo(models.Author, {
-        foreignKey: {
-          allowNull: false,
-          name: 'id'
-        }
-      });
-      this.belongsTo(models.Category, {
-        foreignKey: {
-          allowNull: false,
-          name: 'id'
-        }
-      });
-      this.belongsTo(models.Location, {
-        foreignKey: {
-          allowNull: false,
-          name: 'id'
-        }
-      });
+      this.belongsTo(models.Author);
+      this.belongsTo(models.Category);
+      this.belongsTo(models.Location);
     }
   }
   Book.init(
     {
+      authorId: DataTypes.INTEGER,
+      categoryId: DataTypes.INTEGER,
+      locationId: DataTypes.INTEGER,
       title: DataTypes.STRING,
       description: DataTypes.TEXT,
       amount: DataTypes.INTEGER
