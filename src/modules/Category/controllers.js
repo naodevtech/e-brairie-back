@@ -32,7 +32,7 @@ class CategoryController {
       let category = await this.categoryService.addCategory({
         ...request.body
       });
-      this.responseHandler(response, 201, category, `Catégory ajouté ! 💥`);
+      this.responseHandler(response, 201, category, `Catégorie ajouté ! 💥`);
     } catch (err) {
       next(err);
     }
