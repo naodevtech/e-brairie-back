@@ -6,7 +6,6 @@ class AuthorRouter {
   }
 
   initializeRoutes({ authorController, auth }) {
-    console.log('AuthorsRouter >');
     this.router
       .route('/authors')
       .get(auth.isAuthentificated, authorController.getAllAuthors);

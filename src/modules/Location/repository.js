@@ -29,7 +29,6 @@ class LocationRepository {
   }
 
   async createLocation(location) {
-    console.log(location);
     const locationExist = await this.locationDao.findOne({
       where: {
         categoryId: location.categoryId,

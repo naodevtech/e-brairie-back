@@ -6,7 +6,6 @@ class LocationRouter {
   }
 
   initializeRoutes({ locationController, auth }) {
-    console.log('LocationRouter >');
     this.router
       .route('/locations')
       .get(auth.isAuthentificated, locationController.getAllLocations);

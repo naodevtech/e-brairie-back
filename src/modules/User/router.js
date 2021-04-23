@@ -6,7 +6,6 @@ class UserRouter {
   }
 
   initializeRoutes({ userController }) {
-    console.log('UserRouter >');
     this.router.route('/register').post(userController.register);
     this.router.route('/login').post(userController.login);
   }

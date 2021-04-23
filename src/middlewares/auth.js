@@ -28,7 +28,6 @@ class AuthMiddleWare {
     try {
       const token = request.cookies['auth-cookie'];
       const decoded = await this.jwt.decodeToken(token);
-      console.log(decoded.data.role);
       if (decoded.data.role != 'admin') {
         throw new this.apiError(
           401,
