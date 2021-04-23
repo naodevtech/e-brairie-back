@@ -4,6 +4,7 @@ import authorRouter from './Author';
 import categoryRouter from './Category';
 import genreRouter from './Genre';
 import locationRouter from './Location';
+import bookRouter from './Book';
 
 const routes = [
   helloWordRouter,
@@ -11,7 +12,8 @@ const routes = [
   authorRouter,
   categoryRouter,
   genreRouter,
-  locationRouter
+  locationRouter,
+  bookRouter
 ];
 
 export default routes;
