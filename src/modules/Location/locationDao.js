@@ -15,6 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Location.init(
     {
+      categoryId: DataTypes.INTEGER,
       shelf: DataTypes.STRING,
       floor: DataTypes.INTEGER,
       place: DataTypes.INTEGER
