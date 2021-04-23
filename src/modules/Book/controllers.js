@@ -50,6 +50,15 @@ class BookController {
       next(err);
     }
   };
+
+  getGenres = async (request, response, next) => {
+    try {
+      let genres = await this.bookService.getGenres(request.params.categoryId);
+      this.responseHandler(response, 201, genres);
+    } catch (err) {
+      next(err);
+    }
+  };
 }
 
 export default BookController;
