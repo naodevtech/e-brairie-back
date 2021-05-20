@@ -37,6 +37,15 @@ class UserController {
       next(err);
     }
   };
+
+  logout = async (request, response, next) => {
+    try {
+      response.clearCookie('auth-cookie');
+      this.responseHandler(response, 200, 'User deconnected');
+    } catch (err) {
+      next(err);
+    }
+  };
 }
 
 export default UserController;

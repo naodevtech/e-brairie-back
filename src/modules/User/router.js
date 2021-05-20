@@ -8,6 +8,7 @@ class UserRouter {
   initializeRoutes({ userController }) {
     this.router.route('/register').post(userController.register);
     this.router.route('/login').post(userController.login);
+    this.router.route('/logout').post(userController.logout);
   }
 }
 export default UserRouter;
