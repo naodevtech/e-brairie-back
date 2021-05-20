@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start index User": "nodemon --exec babel-node ./src/modules/User/index.js",
     "start": "nodemon --exec babel-node app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint --ext js src",
@@ -43,6 +42,7 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
     "errorhandler": "^1.5.1",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",

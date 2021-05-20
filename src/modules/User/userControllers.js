@@ -1,13 +1,13 @@
 class UserController {
-  constructor({ userService, jwt, responseHandler }) {
-    this.userService = userService;
+  constructor({ userServices, jwt, responseHandler }) {
+    this.userServices = userServices;
     this.jwt = jwt;
     this.responseHandler = responseHandler;
   }
 
   register = async (request, response, next) => {
     try {
-      let user = await this.userService.register({ ...request.body });
+      let user = await this.userServices.register({ ...request.body });
       this.responseHandler(response, 201, user, 'user registred');
     } catch (err) {
       next(err);
@@ -16,17 +16,18 @@ class UserController {
 
   login = async (request, response, next) => {
     try {
-      let user = await this.userService.login(
+      let user = await this.userServices.login(
         request.body.email,
         request.body.password
       );
       let token = await this.jwt.generateToken({
         id: user.dataValues.id,
-        email: user.dataValues.email,
         role: user.dataValues.role
       });
-      console.log(token);
-      response.cookie('auth-cookie', token, { maxAge: 900000, httpOnly: true });
+      response.cookie('auth-cookie', token, {
+        maxAge: 7200000, // 2 hours
+        httpOnly: true
+      });
       this.responseHandler(
         response,
         200,
