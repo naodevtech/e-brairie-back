@@ -15,6 +15,8 @@ module.exports = (sequelize, DataTypes) => {
   }
   Rent.init(
     {
+      userId: DataTypes.INTEGER,
+      bookId: DataTypes.INTEGER,
       in: DataTypes.DATE,
       back: DataTypes.DATE
     },

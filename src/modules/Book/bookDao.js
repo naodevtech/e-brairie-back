@@ -11,6 +11,9 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       this.belongsTo(models.Author);
       this.belongsTo(models.Category);
+      this.hasMany(models.Rent, {
+        onDelete: 'cascade'
+      });
     }
   }
   Book.init(

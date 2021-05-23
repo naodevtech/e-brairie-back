@@ -1,5 +1,6 @@
 class UserEntity {
-  constructor({ role, name, email, password }) {
+  constructor({ id, role, name, email, password }) {
+    this.id = id;
     this.role = role;
     this.name = name;
     this.email = email;

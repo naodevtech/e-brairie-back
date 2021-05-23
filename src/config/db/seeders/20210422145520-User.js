@@ -24,7 +24,7 @@ module.exports = {
           name: 'Lisa',
           role: 'basic',
           email: 'Lisa@gmail.fr',
-          password: 'password'
+          password: 'Helloworld94!'
         }
       ],
       {}

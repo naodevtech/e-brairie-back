@@ -49,6 +49,7 @@ class UserController {
         response,
         200,
         {
+          id: user.dataValues.id,
           name: user.dataValues.name,
           email: user.dataValues.email,
           role: user.dataValues.role,
@@ -74,6 +75,7 @@ class UserController {
     try {
       const token = await this.jwt.decodeToken(request.cookies['auth-cookie']);
       const user = await this.userService.me(token.id);
+      console.log(user);
       this.responseHandler(
         response,
         200,
