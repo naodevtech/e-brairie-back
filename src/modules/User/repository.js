@@ -39,6 +39,10 @@ class UserRepository {
       return userExist;
     }
   }
+
+  async findById(userId) {
+    return await this.userDao.findOne({ where: { id: userId } });
+  }
 }
 
 export default UserRepository;

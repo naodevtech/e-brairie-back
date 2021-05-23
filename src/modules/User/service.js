@@ -26,6 +26,17 @@ class UserService {
   async login(email, password) {
     return await this.userRepository.checkCredentials(email, password);
   }
+
+  async me(userId) {
+    const user = await this.userRepository.findById(userId);
+
+    if (!user)
+      throw new this.apiError(
+        400,
+        "l'utilisateur demandé n'existe pas sous cet ID 😖"
+      );
+    return new UserEntity(user);
+  }
 }
 
 export default UserService;

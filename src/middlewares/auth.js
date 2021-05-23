@@ -7,7 +7,7 @@ class AuthMiddleWare {
   isAuthentificated = async (request, response, next) => {
     try {
       const token = request.cookies['auth-cookie'];
-
+      console.log(token);
       if (!token) {
         throw new this.apiError(
           401,

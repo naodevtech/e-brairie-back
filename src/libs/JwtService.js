@@ -9,9 +9,7 @@ class JwtService {
   }
 
   async generateToken(data) {
-    return await this.jwt.sign({ data }, this.secret, {
-      expiresIn: '2h'
-    });
+    return await this.jwt.sign(data, this.secret);
   }
 }
 export default JwtService;

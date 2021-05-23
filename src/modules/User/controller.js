@@ -25,12 +25,20 @@ class UserController {
         email: user.dataValues.email,
         role: user.dataValues.role
       });
-      console.log(token);
-      response.cookie('auth-cookie', token, { maxAge: 900000, httpOnly: true });
+      response.cookie('auth-cookie', token, {
+        httpOnly: true,
+        secure: false,
+        maxAge: 3600000
+      });
       this.responseHandler(
         response,
         200,
-        { email: user.dataValues.email, role: user.dataValues.role, token },
+        {
+          name: user.dataValues.name,
+          email: user.dataValues.email,
+          role: user.dataValues.role,
+          token
+        },
         `Bonjour ${user.dataValues.name} 💥`
       );
     } catch (err) {
@@ -41,7 +49,22 @@ class UserController {
   logout = async (request, response, next) => {
     try {
       response.clearCookie('auth-cookie');
-      this.responseHandler(response, 200, 'User deconnected');
+      this.responseHandler(response, 200, {}, 'User deconnected 🔐');
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  me = async (request, response, next) => {
+    try {
+      const token = await this.jwt.decodeToken(request.cookies['auth-cookie']);
+      const user = await this.userService.me(token.id);
+      this.responseHandler(
+        response,
+        200,
+        user,
+        'User connected with great ID 💥'
+      );
     } catch (err) {
       next(err);
     }

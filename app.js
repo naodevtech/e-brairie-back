@@ -5,13 +5,17 @@ import routes from './src/modules';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 
+import { csrf } from './src/middlewares';
 import { handleError } from './src/helpers/error';
+
+// const middlewares = { cookieParser, csrf };
 
 const application = new Server({
   express,
   cors,
   routes,
   cookieParser,
+  csrf,
   handleError
 });
 

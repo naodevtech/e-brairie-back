@@ -7,6 +7,9 @@ module.exports = {
     database: config.db_name,
     host: config.db_host,
     port: config.db_port,
-    dialect: 'mysql'
+    dialect: 'mysql',
+    dialectOptions: {
+      charset: 'utf8mb4'
+    }
   }
 };

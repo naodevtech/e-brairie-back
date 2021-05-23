@@ -6,22 +6,28 @@ module.exports = {
       'Categories',
       [
         {
-          name: 'Poche'
+          name: 'Poche',
+          emoji: '👖'
         },
         {
-          name: 'Manga'
+          name: 'Manga',
+          emoji: '⛩'
         },
         {
-          name: 'Bd'
+          name: 'Bd',
+          emoji: '🗯'
         },
         {
-          name: 'Roman'
+          name: 'Roman',
+          emoji: '📕'
         },
         {
-          name: 'Scientifiques'
+          name: 'Scientifiques',
+          emoji: '🔬'
         },
         {
-          name: 'Developpement Personnel'
+          name: 'Developpement Personnel',
+          emoji: '💆🏽‍♂️'
         }
       ],
       {}

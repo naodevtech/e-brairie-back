@@ -1,8 +1,8 @@
 class Server {
-  constructor({ express, cors, routes, cookieParser, handleError }) {
+  constructor({ express, cors, routes, cookieParser, csrf, handleError }) {
     this.app = express();
     this.initializeBodyParsing(express);
-    this.initializeMiddlewares({ cookieParser });
+    this.initializeMiddlewares({ cookieParser, csrf });
     this.initializeApplicationCors(cors);
     this.initializeApplicationRouter(routes);
     this.app.use((err, request, response, next) => {
@@ -15,15 +15,18 @@ class Server {
   }
 
   initializeApplicationCors(cors) {
-    this.app.use(cors({ credentials: true, origin: 'http://localhost:3001' }));
+    this.app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
+  }
+
+  initializeMiddlewares({ cookieParser, csrf }) {
+    this.app.use(cookieParser());
+    this.app.get('/csrf', csrf, (req, res) => {
+      res.status(200).json(req.csrfToken());
+    });
   }
 
   initializeApplicationRouter(routes) {
     this.app.use(routes);
-  }
-
-  initializeMiddlewares({ cookieParser }) {
-    this.app.use(cookieParser());
   }
 
   listen(app_port) {
