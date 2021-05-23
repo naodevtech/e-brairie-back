@@ -8,7 +8,22 @@ class UserController {
   register = async (request, response, next) => {
     try {
       let user = await this.userService.register({ ...request.body });
-      this.responseHandler(response, 201, user, 'user registred');
+      let token = await this.jwt.generateToken({
+        id: user.dataValues.id,
+        email: user.dataValues.email,
+        role: user.dataValues.role
+      });
+      response.cookie('auth-cookie', token, {
+        httpOnly: true,
+        secure: false,
+        maxAge: 3600000
+      });
+      this.responseHandler(
+        response,
+        201,
+        user,
+        `Bonjour ${user.dataValues.name} 💥`
+      );
     } catch (err) {
       next(err);
     }
