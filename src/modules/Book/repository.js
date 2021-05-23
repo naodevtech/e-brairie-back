@@ -106,7 +106,7 @@ class BookRepository {
     });
     if (categoryExist) {
       const books = await this.bookDao.findAll({
-        where: { id: id }
+        where: { categoryId: id }
       });
       if (!books) {
         throw new this.apiError(
