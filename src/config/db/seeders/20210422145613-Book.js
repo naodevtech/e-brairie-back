@@ -9,7 +9,6 @@ module.exports = {
           amount: 5,
           categoryId: 4,
           authorId: 2,
-          locationId: 1,
           description: 'Lorem'
         },
         {
@@ -17,7 +16,6 @@ module.exports = {
           amount: 0,
           categoryId: 4,
           authorId: 1,
-          locationId: 2,
           description: 'Lorem'
         },
         {
@@ -25,7 +23,6 @@ module.exports = {
           amount: 5,
           categoryId: 6,
           authorId: 3,
-          locationId: 3,
           description: 'Lorem'
         },
         {
@@ -33,7 +30,6 @@ module.exports = {
           amount: 3,
           categoryId: 4,
           authorId: 4,
-          locationId: 4,
           description: 'Lorem'
         },
         {
@@ -41,7 +37,6 @@ module.exports = {
           amount: 3,
           categoryId: 4,
           authorId: 5,
-          locationId: 5,
           description: 'Lorem'
         }
       ],

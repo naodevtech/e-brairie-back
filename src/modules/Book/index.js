@@ -16,13 +16,11 @@ import AuthMiddleWare from '../../middlewares/auth';
 
 const Book = require('./bookDao');
 const Author = require('../Author/authorDao');
-const Categorygenre = require('../CategoryGenre/categoryGenreDao');
 
 const router = Router();
 
 const bookDao = Book(db.sequelize, db.Sequelize.DataTypes);
 const authorDao = Author(db.sequelize, db.Sequelize.DataTypes);
-const categoryGenreDao = Categorygenre(db.sequelize, db.Sequelize.DataTypes);
 
 const auth = new AuthMiddleWare({
   jwtService,
@@ -32,7 +30,6 @@ const auth = new AuthMiddleWare({
 const bookRepository = new BookRepository({
   bookDao,
   authorDao,
-  categoryGenreDao,
   ApiError
 });
 

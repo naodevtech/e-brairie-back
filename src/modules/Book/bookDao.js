@@ -11,14 +11,12 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       this.belongsTo(models.Author);
       this.belongsTo(models.Category);
-      this.belongsTo(models.Location);
     }
   }
   Book.init(
     {
       authorId: DataTypes.INTEGER,
       categoryId: DataTypes.INTEGER,
-      locationId: DataTypes.INTEGER,
       title: DataTypes.STRING,
       description: DataTypes.TEXT,
       amount: DataTypes.INTEGER

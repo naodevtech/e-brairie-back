@@ -19,9 +19,6 @@ class BookRouter {
     this.router
       .route('/books/:id')
       .delete(auth.isAdmin, bookController.deleteBook);
-    this.router
-      .route('/books/:categoryId/genres')
-      .get(auth.isAuthentificated, bookController.getGenres);
   }
 }
 

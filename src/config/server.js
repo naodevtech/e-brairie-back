@@ -31,7 +31,7 @@ class Server {
 
   listen(app_port) {
     this.app.listen(app_port, () =>
-      console.log(`application started on port : ${app_port}`)
+      console.log(`application started on port : ${app_port} 💥⚡️`)
     );
   }
 }

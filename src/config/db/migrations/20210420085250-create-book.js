@@ -24,14 +24,6 @@ module.exports = {
           key: 'id'
         }
       },
-      locationId: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Locations',
-          key: 'id'
-        }
-      },
       title: {
         type: Sequelize.STRING
       },

@@ -1,8 +1,7 @@
 class BookRepository {
-  constructor({ bookDao, authorDao, categoryGenreDao, ApiError }) {
+  constructor({ bookDao, authorDao, ApiError }) {
     this.bookDao = bookDao;
     this.authorDao = authorDao;
-    this.categoryGenreDao = categoryGenreDao;
     this.apiError = ApiError;
   }
 
@@ -98,19 +97,6 @@ class BookRepository {
       }
       return book;
     }
-  }
-
-  async getGenresByCategoryId(id) {
-    const genres = await this.categoryGenreDao.findAll({
-      where: { categoryId: id }
-    });
-    if (!genres || genres.length === 0) {
-      throw new this.apiError(
-        400,
-        "Il semble qu'il n'y ai aucuns genres associés à l'ID de la catégorie'😖"
-      );
-    }
-    return genres;
   }
 }
 
