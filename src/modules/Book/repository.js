@@ -1,7 +1,8 @@
 class BookRepository {
-  constructor({ bookDao, authorDao, ApiError }) {
+  constructor({ bookDao, authorDao, categoryDao, ApiError }) {
     this.bookDao = bookDao;
     this.authorDao = authorDao;
+    this.categoryDao = categoryDao;
     this.apiError = ApiError;
   }
 
@@ -96,6 +97,24 @@ class BookRepository {
         );
       }
       return book;
+    }
+  }
+
+  async getBooksByCategoryId(id) {
+    const categoryExist = await this.categoryDao.findOne({
+      where: { id: id }
+    });
+    if (categoryExist) {
+      const books = await this.bookDao.findAll({
+        where: { id: id }
+      });
+      if (!books) {
+        throw new this.apiError(
+          400,
+          "Il semble qu'il n'y ai aucun livre dans cette catégories '😖"
+        );
+      }
+      return books;
     }
   }
 }

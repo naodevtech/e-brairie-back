@@ -12,6 +12,9 @@ class BookRouter {
     this.router
       .route('/books/:id')
       .get(auth.isAuthentificated, bookController.getBook);
+    this.router
+      .route('/category/:id/books')
+      .get(auth.isAuthentificated, bookController.getBooksByCategoryId);
     this.router.route('/books').post(auth.isAdmin, bookController.addBook);
     this.router
       .route('/books/:id')

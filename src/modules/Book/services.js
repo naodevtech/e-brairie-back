@@ -30,8 +30,8 @@ class BookService {
     return await this.bookRepository.deleteBookById(id);
   }
 
-  async getGenres(id) {
-    return await this.bookRepository.getGenresByCategoryId(id);
+  async getBooksByCategoryId(id) {
+    return await this.bookRepository.getBooksByCategoryId(id);
   }
 }
 

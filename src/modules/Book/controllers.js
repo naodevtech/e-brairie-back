@@ -50,11 +50,17 @@ class BookController {
       next(err);
     }
   };
-
-  getGenres = async (request, response, next) => {
+  getBooksByCategoryId = async (request, response, next) => {
     try {
-      let genres = await this.bookService.getGenres(request.params.categoryId);
-      this.responseHandler(response, 201, genres);
+      let books = await this.bookService.getBooksByCategoryId(
+        request.params.id
+      );
+      this.responseHandler(
+        response,
+        201,
+        books,
+        `Tous les livre pour cette catégorie 💥`
+      );
     } catch (err) {
       next(err);
     }
